@@ -1,0 +1,35 @@
+
+
+
+<h2>Liste des offres d'emploi</h2>
+
+<form (ngSubmit)="rechercherOffres()">
+    <label for="entreprise">Chercher par entreprise :</label>
+    <input type="text" id="entreprise" name="entreprise" [(ngModel)]="nomEntreprise">
+    <button type="submit">Rechercher</button>
+  </form>
+  
+<button (click)="calculerBilan()">Bilan</button>
+<table>
+  <thead>
+    <tr>
+      <th>Référence</th>
+      <th>Titre</th>
+      <th>Entreprise</th>
+      <th>État</th>
+      <th>Postuler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emploi of listeEmploi">
+      <td>{{ emploi.reference }}</td>
+      <td>{{ emploi.titre }}</td>
+      <td>{{ emploi.entreprise }}</td>
+      <td>{{ emploi.etat ? 'Activée' : 'Désactivée' }}</td>
+      <td><button [disabled]="!emploi.etat">Postuler</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+

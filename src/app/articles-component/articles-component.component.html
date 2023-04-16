@@ -1,0 +1,13 @@
+
+
+<ng-container *ngFor="let article of listeArticles">
+<fieldset *ngIf="article.categorie !== 'Travail'" [ngClass]="{'education-article': article.categorie === 'Education'}">
+    <legend >{{ article.titre }}</legend>
+    {{incrementNombreArticles()}}
+        <p> Auteur {{ article.auteur }}</p>
+        <p> Date  {{ article.date | date }}</p>
+        <p> Contenur : {{ article.contenu}}</p>
+        <p> Catégorie : {{ article.categorie}}</p>
+    
+  </fieldset>
+</ng-container>
