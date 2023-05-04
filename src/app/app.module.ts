@@ -9,6 +9,7 @@ import { AsideComponent } from './aside/aside.component';
 import { OffresEmploiComponentComponent } from './offres-emploi-component/offres-emploi-component.component';
 import { FormsModule } from '@angular/forms';
 import { ArticlesComponentComponent } from './articles-component/articles-component.component';
+import { FormtemplateComponent } from './formtemplate/formtemplate.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ArticlesComponentComponent } from './articles-component/articles-compon
     FooterComponent,
     AsideComponent,
     OffresEmploiComponentComponent,
-    ArticlesComponentComponent
+    ArticlesComponentComponent,
+    FormtemplateComponent
   ],
   imports: [
     BrowserModule,

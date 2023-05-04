@@ -1,0 +1,48 @@
+<form #addForm="ngForm" >
+    <div class="form-group">
+      <label for="title">Nom</label>
+      <input type="text" class="form-control" id="title" name="title" ngModel required #t="ngModel" [class.is-invalid]="t.invalid && t.touched">
+      <div *ngIf="t.invalid && t.touched" class="invalid-feedback" style="color:red">
+        Le nom est obligatoire.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="price">Email</label>
+      <input type="email" class="form-control" id="price" name="price" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3}$" required>
+      <div *ngIf="addForm.controls['price'].invalid && addForm.controls['price'].touched" class="invalid-feedback" style="color:red">
+        L'adresse email doit avoir le format: xxxxx.yyyyy@zzzzz (le premier point existe, l’@ existe et il faut avoir 3 caractères après l’@).
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="quantity">Type carte</label>
+      <input type="text" class="form-control" id="quantity" name="quantity" ngModel required #type="ngModel" [class.is-invalid]="type.invalid && type.touched">
+      <div *ngIf="type.invalid && type.touched" class="invalid-feedback" style="color:red">
+        Le type de carte est obligatoire.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="id">Numero de la carte</label>
+      <input type="number" class="form-control" id="id" name="id" ngModel pattern="\d{16}" required #num="ngModel" [class.is-invalid]="num.invalid && num.touched">
+      <div *ngIf="num.invalid && num.touched" class="invalid-feedback" style="color:red">
+        Le numéro de carte doit contenir 16 chiffres.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>Date expiration</label>
+      <input type="date" class="form-control" name="expiration" ngModel required #date="ngModel" [class.is-invalid]="date.invalid && date.touched">
+      <div *ngIf="date.invalid && date.touched" class="invalid-feedback" style="color:red">
+        La date d'expiration est obligatoire.
+      </div>
+    </div>
+  
+    <div class="form-group" *ngIf="addForm.valid">
+      <label for="code">Code</label>
+      <input type="number" class="form-control" id="code" name="code" ngModel >
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Ajouter</button>
+  </form>
